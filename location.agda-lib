@@ -1,0 +1,6 @@
+depend:
+  cubical
+  standard-library
+  agda-categories
+include: src
+
