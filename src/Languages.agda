@@ -568,10 +568,10 @@ module Automatic (_=Σ?_ : ∀ (x y : Σ) → Dec (x ≡ y)) where
   δₘ oneₘ a = δone ↔ₘ ∅ₘ
 
   {-# TERMINATING #-}
-  -- Due to limitations in Agda's coinduction it cannot see that the follwoing coinductive definitions
+  -- Due to limitations in Agda's coinduction it cannot see that the following coinductive definitions
   -- are terminating.
   --
-  -- The paper uses sized-types to get around this.
+  -- The paper uses sized-types to get around this issue.
   _*ₘ_ : Machine P → Machine Q → Machine (P * Q)
   νₘ (p *ₘ q) = ν* ↔? ((νₘ p) ×? (νₘ q))
   δₘ (p *ₘ q) a = δ* ↔ₘ ((νₘ p ∙ₘ δₘ q a) ⋃ₘ (δₘ p a *ₘ q))
